@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艺术二维码介绍</title>
+</head>
+<body>
+    <h2>喜欢<span id="qrname" style="color: green;"></span>这个二维码？</h2>
+    <h2>请联系我吧</h2>
+    <div>
+        <div>可以发送<a href="mailto:email@example.com">电子邮件aivisions@126.com</a></div>
+    </div>
+    <div>
+        <div>也可以长按图片微信扫码</div>
+        <div style="text-align: center;">
+            <img style="width: 95%;" src="wechatQR.jpg" alt="aivisions@126.com艺术二维码，喜欢的联系" title="aivisions@126.com艺术二维码，喜欢的联系"/>
+        </div>
+    </div>
+</body>
+<script>
+    
+function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+    var context = "";
+    if (r != null)
+        context = decodeURIComponent(r[2]);
+    reg = null;
+    r = null;
+    return context == null || context == "" || context == "undefined" ? "" : context;
+}
+
+function setSource() {
+    let source = GetQueryString("s");
+    if (source) {
+        document.getElementById("qrname").textContent = source;
+    }
+}
+
+setSource();
+
+</script>
+</html>
